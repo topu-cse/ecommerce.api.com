@@ -106,3 +106,9 @@ res.status(500).send({
 }
 };
 
+//test testController
+
+export const testController=(req,res)=>{
+ res.send('protected routes')
+}
+

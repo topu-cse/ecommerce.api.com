@@ -4,12 +4,13 @@ import toast from 'react-hot-toast';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import "../../Styles/AuthStyles.css";
+import { useAuth } from '../../components/Context/Auth';
 
 const Login = () => {
   
   const[email,setEmail]=useState('')
   const[password,setPassword]=useState('')
-  
+  const[auth,setAuth]=useAuth()
   const navigate=useNavigate();
 //form function
 const handleSubmit=async(e)=>{
@@ -25,6 +26,12 @@ const handleSubmit=async(e)=>{
     if(res.data.success){
       
       toast.success(res.data.message)
+      setAuth({
+        ...auth,
+        user:res.data.user,
+        token:res.data.token,
+      });
+      localStorage.setItem('auth',JSON.stringify(res.data))
       navigate('/')
     }
     else{
@@ -69,7 +76,7 @@ return (
       
       
       <button type="submit" className="btn btn-primary">
-        REGISTER
+        LOGIN
       </button>
     </form>
   </div>

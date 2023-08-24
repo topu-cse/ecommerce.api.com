@@ -9,6 +9,8 @@ import Register from './pages/Auth/Register';
 import Login from './pages/Auth/Login';
 
   import 'react-toastify/dist/ReactToastify.css';
+import Dashboard from './pages/user/Dashboard';
+import PrivetRoute from './components/Routes/privet';
 
 function App() {
   return (
@@ -21,6 +23,13 @@ function App() {
       <Route path='*' element={<PagenotFound/>}/>
       <Route path='/register' element={<Register/>}/>
       <Route path='/login' element={<Login/>}/>
+
+      <Route path='/dashboard' element={<PrivetRoute/>}>
+
+      <Route path='' element={<Dashboard/>}/>
+
+      </Route>
+       
     </Routes>
   
     </>

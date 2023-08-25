@@ -14,6 +14,11 @@ import PrivetRoute from './components/Routes/privet';
 import ForgotPassword from './pages/Auth/ForgotPassword';
 import AdminRoute from './components/Routes/AdminRoute';
 import Admin from './pages/Admin/Admin';
+import CreateCategori from './pages/Admin/CreateCategori';
+import CreateProduct from './pages/Admin/CreateProduct';
+import Users from './pages/Admin/Users';
+import Profile from './pages/user/Profile';
+import Oders from './pages/user/Oders';
 
 function App() {
   return (
@@ -30,10 +35,15 @@ function App() {
 
       <Route path='/dashboard' element={<PrivetRoute/>}>
       <Route path='user' element={<Dashboard/>}/>
+      <Route path='user/profile' element={<Profile/>}/>
+      <Route path='user/orders' element={<Oders/>}/>
       </Route >
 
       <Route path='/dashboard' element={<AdminRoute/>}>
         <Route path='admin' element={<Admin/>}/>
+        <Route path='admin/create-category' element={<CreateCategori/>}/>
+        <Route path='admin/create-product' element={<CreateProduct/>}/>
+        <Route path='admin/users' element={<Users/>}/>
       </Route>
        
     </Routes>

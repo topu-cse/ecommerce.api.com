@@ -11,6 +11,9 @@ import Login from './pages/Auth/Login';
   import 'react-toastify/dist/ReactToastify.css';
 import Dashboard from './pages/user/Dashboard';
 import PrivetRoute from './components/Routes/privet';
+import ForgotPassword from './pages/Auth/ForgotPassword';
+import AdminRoute from './components/Routes/AdminRoute';
+import Admin from './pages/Admin/Admin';
 
 function App() {
   return (
@@ -22,12 +25,15 @@ function App() {
       <Route path='/policy' element={<Policy/>}/>
       <Route path='*' element={<PagenotFound/>}/>
       <Route path='/register' element={<Register/>}/>
+      <Route path='/forgot-password' element={<ForgotPassword/>}/>
       <Route path='/login' element={<Login/>}/>
 
       <Route path='/dashboard' element={<PrivetRoute/>}>
-
       <Route path='' element={<Dashboard/>}/>
+      </Route >
 
+      <Route path='/dashboard' element={<AdminRoute/>}>
+        <Route path='admin' element={<Admin/>}/>
       </Route>
        
     </Routes>

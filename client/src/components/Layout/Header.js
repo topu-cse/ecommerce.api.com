@@ -30,7 +30,6 @@ const Header = () => {
           <Link to={'/category'} className="nav-link" >category</Link>
         </li>
 
-
         {
           !auth.user ? (<>
            <li className="nav-item">
@@ -39,13 +38,25 @@ const Header = () => {
         <li className="nav-item">
           <Link to={'/login'} className="nav-link " >Login</Link>
         </li>
+
           </>):(<>
-          
-            <li className="nav-item">
-          <Link onClick={handeleLogOut} to={'/login'} className="nav-link " >Logout</Link>
+
+            <li className="nav-item dropdown">
+          <Link className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {auth?.user.name}
+          </Link>
+          <ul className="dropdown-menu">
+          <li className="nav-item">
+          <Link to={`/dashboard/ ${auth?.user?.role ===1 ? "admin" : "user"}` } className="dropdown-item" >Dashboard</Link>
+          </li>
+           <li><Link onClick={handeleLogOut} to={'/login'} className="dropdown-item">Logout</Link></li>
+          </ul>
         </li>
+          
+            
         </>)
         }
+       
         <li className="nav-item">
           <Link to={'/cart'} className="nav-link " >Cart (0)</Link>
         </li>

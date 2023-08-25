@@ -19,3 +19,5 @@ export default function PrivetRoute(){
     },[auth?.token])
     return ok ? <Outlet/>: <Spinner/>;
 }
+  
+        

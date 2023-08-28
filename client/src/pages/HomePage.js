@@ -102,6 +102,15 @@ const HomePage = () => {
                    </Radio.Group>
                     </div>
 
+                    <div className="d-flex flex-column ms-3">
+                    <button
+              className="btn btn-danger"
+              onClick={() => window.location.reload()}
+            >
+              RESET FILTERS
+            </button>
+                    </div>
+
 
 
                 </div>

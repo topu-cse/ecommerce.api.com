@@ -4,6 +4,7 @@ import { createProductController,
      deleteProductController,
      getProductController, 
      getSingleProductController, 
+     productFiltersController, 
      productPhotoController, 
      updateProductController} 
      from '../controllers/productController.js'
@@ -25,5 +26,8 @@ router.get("/product-photo/:pid", productPhotoController);
 router.delete("/delete-product/:pid", deleteProductController);
 //update-product
 router.put('/update-product/:pid',requireSignIn,isAdmin, formidable(),updateProductController)
+
+//product filter
+router.post('/product-filters',productFiltersController)
 
 export default router

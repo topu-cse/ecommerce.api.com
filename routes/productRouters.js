@@ -4,7 +4,9 @@ import { createProductController,
      deleteProductController,
      getProductController, 
      getSingleProductController, 
+     productCountController, 
      productFiltersController, 
+     productListController, 
      productPhotoController, 
      updateProductController} 
      from '../controllers/productController.js'
@@ -29,5 +31,10 @@ router.put('/update-product/:pid',requireSignIn,isAdmin, formidable(),updateProd
 
 //product filter
 router.post('/product-filters',productFiltersController)
+
+//product count
+router.get('/product-count',productCountController)
+//product per page
+router.get('/product-list/:page',productListController)
 
 export default router

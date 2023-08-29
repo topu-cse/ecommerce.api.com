@@ -101,4 +101,22 @@
     color: black !important;
     
   }
+ .card-list{
+   
+  height: 400px;
+  width: 50px;
+ }
+ .card-list img{
+  height: 200px;
  
+ }
+ /* .display-work{
+  justify-content: center;
+  align-items: center;
+ } */
+ @media only screen and (max-width: 600px) {
+  .display-work{
+    justify-content: center;
+    align-items: center;
+   }
+}

@@ -20,11 +20,22 @@ const ProductsDetails = () => {
         `/api/v1/product/get-product/${params.slug}`
       );
       setProduct(data?.product);
-    //   getSimilarProduct(data?.product._id, data?.product.category._id);
+      getSimilarProduct(data?.product._id, data?.product.category._id);
     } catch (error) {
       console.log(error);
     }
   };
+    //get similar product
+    const getSimilarProduct = async (pid, cid) => {
+        try {
+          const { data } = await axios.get(
+            `/api/v1/product/related-product/${pid}/${cid}`
+          );
+          setRelatedProducts(data?.products);
+        } catch (error) {
+          console.log(error);
+        }
+      };
     return (
        <Layout>
              <div className="row container mt-3">
@@ -43,7 +54,58 @@ const ProductsDetails = () => {
                     <button class="btn btn-secondary ms-1">ADD TO CART</button>
                 </div>
                 </div>   
-                <div className="row">similar products</div>     
+                <div className="row">
+                    <h4> similar products</h4>
+                    <div className="row container similar-products">
+        <h4>Similar Products ➡️</h4>
+        {relatedProducts.length < 1 && (
+          <p className="text-center">No Similar Products found</p>
+        )}
+        <div className="d-flex flex-wrap">
+          {relatedProducts?.map((p) => (
+            <div className="card m-2 card-list" key={p._id}>
+              <img
+                src={`/api/v1/product/product-photo/${p._id}`}
+                className="card-img-top"
+                alt={p.name}
+              />
+              <div className="card-body">
+                <div className="card-name-price">
+                  <h5 className="card-title">{p.name}</h5>
+                  <h5 className="card-title card-price">
+                    {p.price
+                    }
+                  </h5>
+                </div>
+                <p className="card-text ">
+                  {p.description.substring(0, 60)}...
+                </p>
+                <div className="card-name-price">
+                  <button
+                    className="btn btn-info ms-1"
+                    onClick={() => navigate(`/product/${p.slug}`)}
+                  >
+                    More Details
+                  </button>
+                  {/* <button
+                  className="btn btn-dark ms-1"
+                  onClick={() => {
+                    setCart([...cart, p]);
+                    localStorage.setItem(
+                      "cart",
+                      JSON.stringify([...cart, p])
+                    );
+                    toast.success("Item Added to cart");
+                  }}
+                >
+                  ADD TO CART
+                </button> */}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+                    </div>  </div>   
        </Layout>
     );
 };

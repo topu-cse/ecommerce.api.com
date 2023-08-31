@@ -87,6 +87,7 @@ const ProductsDetails = () => {
                   >
                     More Details
                   </button>
+                  <button class="btn btn-secondary ms-1">ADD TO CART</button>
                   {/* <button
                   className="btn btn-dark ms-1"
                   onClick={() => {

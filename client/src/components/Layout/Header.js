@@ -116,14 +116,18 @@ const Header = () => {
               )}
 
 
-        <li className="nav-item">
-          <Link to={'/cart'} className="nav-link " >Cart (0)</Link>
+        <li className="nav-item ">
+          
+        <Link className="nav-link" to={'/cart'} >Cart(0) </Link>
+
         </li>
       </ul>
       
     </div>
   </div>
 </nav>
+
+
 
         </>
     );

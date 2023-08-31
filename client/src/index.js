@@ -8,15 +8,18 @@ import { AuthProvider } from './components/Context/Auth';
 import 'antd/dist/reset.css';
 import 'react-toastify/dist/ReactToastify.css';
 import { SearchProvider } from './components/Context/search';
+import { CartProvider } from './components/Context/Cart';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
  <AuthProvider>
      <SearchProvider>
+     <CartProvider>
      <BrowserRouter>
    
    <App />
  
  </BrowserRouter>
+     </CartProvider>
      </SearchProvider>
  </AuthProvider>
 );

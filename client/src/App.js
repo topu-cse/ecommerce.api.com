@@ -7,8 +7,7 @@ import Policy from './pages/Policy';
 import PagenotFound from './pages/PagenotFound';
 import Register from './pages/Auth/Register';
 import Login from './pages/Auth/Login';
-
-  import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
 import Dashboard from './pages/user/Dashboard';
 import PrivetRoute from './components/Routes/privet';
 import ForgotPassword from './pages/Auth/ForgotPassword';
@@ -25,6 +24,7 @@ import Search from './pages/Search';
 import ProductsDetails from './pages/ProductsDetails';
 import Categories from './pages/Categories';
 import CategoryProduct from './pages/CategoryProduct';
+import CartPage from './pages/CartPage';
 
 function App() {
   return (
@@ -33,6 +33,7 @@ function App() {
       <Route path='/' element={<HomePage/>}/>
       <Route path='/product/:slug' element={<ProductsDetails/>}/>
       <Route path='/categories' element={<Categories/>}/>
+      <Route path='/cart' element={<CartPage/>}/>
       <Route path='/category/:slug' element={<CategoryProduct/>}/>
       <Route path='/search' element={<Search/>}/>
       <Route path='/about' element={<About/>}/>
